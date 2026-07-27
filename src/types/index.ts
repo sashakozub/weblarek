@@ -32,3 +32,21 @@ export interface IBuyer {
 
 // Ошибки валидации данных покупателя
 export type TBuyerErrors = Partial<Record<keyof IBuyer, string>>;
+
+// Ответ сервера со списком товаров
+export interface IProductsResponse {
+	total: number;
+	items: IProduct[];
+}
+
+// Данные заказа, отправляемые на сервер
+export interface IOrder extends IBuyer {
+	total: number;
+	items: string[];
+}
+
+// Ответ сервера после оформления заказа
+export interface IOrderResult {
+	id: string;
+	total: number;
+}
